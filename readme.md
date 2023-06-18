@@ -1,0 +1,2 @@
+- [모르는 파이썬 개념 정리](docs/python.md)
+- [파이썬 roop 정리](docs/roop_tech.md)
