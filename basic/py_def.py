@@ -41,9 +41,9 @@ def f(a, L=[]):
     L.append(a)
     return L
 
-print(f(1))
-print(f(2))
-print(f(3))
+# print(f(1))
+# print(f(2))
+# print(f(3))
 
 # 만약 기본값이 공유되는걸 원치 않는다면 아래처럼 함수를 선언해야 한다.
 def f(a, L=None):
@@ -51,3 +51,25 @@ def f(a, L=None):
         L = []
     L.append(a)
     return L
+
+
+
+def cheeseshop(kind, *arguments, **keywords):
+    print("-- Do you have any", kind, "?")
+    print("-- I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    for kw in keywords:
+        print(kw, ":", keywords[kw])
+
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch",
+           )
+"""
+문자열만 함수 인자값으로 사용한 경우 arguments -> *
+변수에 값을 담아서 전달한 경우 keywords -> **
+"""
