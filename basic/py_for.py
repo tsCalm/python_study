@@ -30,3 +30,20 @@ for user, status in users.items():
 
 # print(users.copy().items() == users) True , 내부값이 완전히 같은 경우 True, js의 경우 참조타입은 주소값으로 비교하는데 파이썬은 그렇지 않은 것으로 추정된다.
 # print(users.copy() == active_users) => False
+
+# break문에 걸리지 않으면 else문이 호출된다.
+for n in range(2, 10):
+  for x in range(2, n):
+    if n % x == 0:
+        print(n, 'equals', x, '*', n//x)
+        break
+  else:
+      print(n, 'is a prime number')
+
+
+# continue의 경우 자바스크립트의 유사, 아래코드를 실행하지 않는다.
+for num in range(2, 10):
+    if num % 2 == 0:
+        print("Found an even number", num)
+        continue
+    print("Found an odd number", num)
