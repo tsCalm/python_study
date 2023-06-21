@@ -54,22 +54,52 @@ def f(a, L=None):
 
 
 
-def cheeseshop(kind, *arguments, **keywords):
-    print("-- Do you have any", kind, "?")
-    print("-- I'm sorry, we're all out of", kind)
-    for arg in arguments:
-        print(arg)
-    print("-" * 40)
-    for kw in keywords:
-        print(kw, ":", keywords[kw])
+# def cheeseshop(kind, *arguments, **keywords):
+#     print("-- Do you have any", kind, "?")
+#     print("-- I'm sorry, we're all out of", kind)
+#     for arg in arguments:
+#         print(arg)
+#     print("-" * 40)
+#     for kw in keywords:
+#         print(kw, ":", keywords[kw])
 
-cheeseshop("Limburger", "It's very runny, sir.",
-           "It's really very, VERY runny, sir.",
-           shopkeeper="Michael Palin",
-           client="John Cleese",
-           sketch="Cheese Shop Sketch",
-           )
+# cheeseshop("Limburger", "It's very runny, sir.",
+#            "It's really very, VERY runny, sir.",
+#            shopkeeper="Michael Palin",
+#            client="John Cleese",
+#            sketch="Cheese Shop Sketch",
+#            )
 """
-문자열만 함수 인자값으로 사용한 경우 arguments -> *
-변수에 값을 담아서 전달한 경우 keywords -> **
+문자열만 함수 인자값으로 사용한 경우(위치 매개 변수) arguments -> *
+변수에 값을 담아서 전달한 경우(키워드 인자) keywords -> **
 """
+
+def standard_arg(arg):
+    print(arg)
+
+def pos_only_arg(arg, /):
+    print(arg)
+
+def kwd_only_arg(*, arg):
+    print(arg)
+
+# 위치매개변수, 상관없음, 키워드 인자
+def combined_example(pos_only, /, standard, *, kwd_only):
+    print(pos_only, standard, kwd_only)
+
+# 호출 규칙에 아무런 제한을 두지 않은 예제
+# standard_arg(2)
+# standard_arg(arg=2)
+
+# /가 있으므로 위치 매개 변수만 사용하도록 제한
+# pos_only_arg(1) -> 성공
+# pos_only_arg(arg=1) -> 에러
+
+# *로 표시된 키워드 인자만 허용
+# kwd_only_arg(3) -> 에러
+# kwd_only_arg(arg=3) -> 성공
+
+# 세가지 호출 규칙을 모두 허용
+# combined_example(1, 2, kwd_only=3) #1 2 3
+# combined_example(1, standard=2, kwd_only=3) # 1 2 3
+# combined_example(pos_only=1, standard=2, kwd_only=3) # 에러
