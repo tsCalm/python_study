@@ -128,3 +128,11 @@ def make_incrementor(n):
 f = make_incrementor(12)
 temp = f(13)
 print(temp)
+
+# 도큐멘테이션 문자열, 첫 글자는 대문자로 시작하고 마지막은 마침표로 끝나야한다.
+def my_function():
+    """Do nothing, but document it.
+
+    No, really, it doesn't do anything.
+    """
+    pass
