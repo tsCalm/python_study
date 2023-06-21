@@ -107,5 +107,9 @@ def combined_example(pos_only, /, standard, *, kwd_only):
 def concat(*args, sep="/"):
     return sep.join(args)
 
-concat("earth", "mars", "venus") # earth/mars/venus
-concat("earth", "mars", "venus", sep=".") # earth.mars.venus
+# concat("earth", "mars", "venus") # earth/mars/venus
+# concat("earth", "mars", "venus", sep=".") # earth.mars.venus
+
+list(range(3, 6)) # normal call with separate arguments
+args = [3, 6]
+list(range(*args)) # call with arguments unpacked from a list
